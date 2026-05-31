@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F2F2F4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
+        android:orientation="horizontal"
+        android:elevation="1dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="JiaLe Cloud"
+            android:textSize="18sp"
+            android:textColor="#1C1C1E"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/header_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <View android:id="@+id/header_dot" android:layout_width="8dp" android:layout_height="8dp"
+                android:layout_marginEnd="6dp" android:background="@drawable/status_dot_offline" />
+            <TextView android:id="@+id/header_status_text" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="离线" android:textSize="13sp"
+                android:textColor="#8E8E93" android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/tab_status"
+            android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:text="状态" android:gravity="center" android:textSize="11sp" android:textColor="#1C1C1E"
+            android:fontFamily="sans-serif-medium" android:background="?attr/selectableItemBackground"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:id="@+id/tab_files"
+            android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:text="文件" android:gravity="center" android:textSize="11sp" android:textColor="#8E8E93"
+            android:fontFamily="sans-serif-medium" android:background="?attr/selectableItemBackground"
+            android:letterSpacing="0.05" />
+
+        <TextView
+            android:id="@+id/tab_settings"
+            android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:text="设置" android:gravity="center" android:textSize="11sp" android:textColor="#8E8E93"
+            android:fontFamily="sans-serif-medium" android:background="?attr/selectableItemBackground"
+            android:letterSpacing="0.05" />
+    </LinearLayout>
+</LinearLayout>

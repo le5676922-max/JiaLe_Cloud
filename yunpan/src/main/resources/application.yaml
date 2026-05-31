@@ -1,0 +1,78 @@
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 30
+      min-spare: 5
+
+spring:
+  application:
+    name: yunpan
+  servlet:
+    multipart:
+      max-file-size: 5GB
+      max-request-size: 5GB
+  datasource:
+    url: jdbc:mysql://localhost:3306/yunpan?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:your-db-password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: ${MAIL_USERNAME:your-email@qq.com}
+    password: ${MAIL_PASSWORD:your-mail-auth-code}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: org.example.yunpan.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+yunpan:
+  cloud:
+    host: ${CLOUD_HOST:127.0.0.1:8080}
+
+  node:
+    id: cloud
+    name: cloud
+    frp-port: 18080
+    token: ${NODE_TOKEN:change-me}
+  coordinator: true  # 云 ECS 上设为 true
+
+  bind:
+    ticket-ttl-seconds: 300
+    remote-port-start: 18082
+    api-base: http://${CLOUD_HOST:127.0.0.1:8080}
+    frp-host: ${CLOUD_FRP_HOST:127.0.0.1}
+
+  storage:
+    root-path: ./storage_data
+    max-capacity: 5368709120   # 5GB（仅管理员可用）
+
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-random-string}
+    expiration-ms: 604800000  # 7天
+
+  security:
+    master-key: ${MASTER_KEY:change-me-to-a-64-char-hex-string}
+
+  membership:
+    free-quota: 5368709120      # 5GB
+    vip-quota:  32212254720     # 30GB
+
+  compression:
+    enabled: true
+    level: 6
+    skip-extensions: jpg,jpeg,png,gif,webp,heic,avif,mp4,mkv,avi,mov,webm,flv,wmv,mp3,aac,ogg,wav,flac,zip,rar,7z,gz,bz2,xz
+    min-size: 1024             # <1KB 不压缩
+
+  upload:
+    chunk-size: 10485760        # 10MB
+    chunk-parallel: 3
+    chunk-ttl-hours: 24

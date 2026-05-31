@@ -1,0 +1,40 @@
+# ===== 环境变量（包含敏感信息） =====
+.env
+
+# ===== Java / Maven =====
+**/target/
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+*.war
+*.class
+*.log
+
+# ===== Android / Gradle =====
+**/build/
+.idea/
+*.iml
+local.properties
+
+# ===== Node / Vite =====
+**/node_modules/
+dist/
+*.local
+
+# ===== IDE =====
+.vscode/
+*.swp
+*.swo
+*~
+
+# ===== 二进制 / 工具 =====
+tools/*.exe
+tools/*.log
+tools/*.err.log
+tools/*.out.log
+
+# ===== 操作系统 =====
+.DS_Store
+Thumbs.db
+
+# ===== 存储数据（运行时生成） =====
+storage_data/

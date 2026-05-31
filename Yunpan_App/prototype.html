@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F2F2F4;color:#1C1C1E;-webkit-font-smoothing:antialiased}
+.app{max-width:420px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;background:#F2F2F4}
+
+/* Header */
+.header{background:#FFFFFF;padding:16px 20px;border-bottom:1px solid #E5E5EA;display:flex;align-items:center;justify-content:space-between}
+.header-title{font-size:18px;font-weight:700;color:#1C1C1E}
+.header-status{display:flex;align-items:center;gap:6px;font-size:13px;color:#34C759;font-weight:600}
+.header-status.offline{color:#8E8E93}
+
+/* Status strip */
+.strip{background:#FFFFFF;padding:20px;margin:12px 12px 0;border-radius:14px;display:flex;gap:16px;align-items:center}
+.strip-icon{width:48px;height:48px;border-radius:12px;background:#34C75915;display:flex;align-items:center;justify-content:center;font-size:24px}
+.strip-info{flex:1}
+.strip-title{font-size:15px;font-weight:600}
+.strip-sub{font-size:13px;color:#8E8E93;margin-top:2px}
+.strip-badge{font-size:12px;font-weight:600;padding:6px 12px;border-radius:20px;background:#34C75915;color:#34C759}
+
+/* Metric cards row */
+.row{display:flex;gap:10px;padding:0 12px;margin-top:12px}
+.metric{flex:1;background:#FFFFFF;padding:18px;border-radius:14px}
+.metric-label{font-size:12px;color:#8E8E93;font-weight:500;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em}
+.metric-value{font-size:28px;font-weight:700;color:#1C1C1E}
+.metric-unit{font-size:14px;color:#8E8E93;font-weight:400;margin-left:2px}
+.metric-sub{font-size:12px;color:#8E8E93;margin-top:4px}
+
+/* Progress */
+.progress{background:#FFFFFF;margin:12px;padding:18px;border-radius:14px}
+.progress-header{display:flex;justify-content:space-between;margin-bottom:10px}
+.progress-title{font-size:14px;font-weight:600}
+.progress-pct{font-size:14px;color:#8E8E93}
+.progress-bar{height:6px;background:#E5E5EA;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:#1C1C1E;border-radius:3px;transition:width .3s}
+
+/* Speed */
+.speed{background:#FFFFFF;margin:0 12px 12px;padding:18px;border-radius:14px}
+.speed-title{font-size:12px;color:#8E8E93;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px}
+.speed-row{display:flex;justify-content:space-between;padding:6px 0}
+.speed-label{font-size:14px}
+.speed-val{font-size:14px;font-weight:600;color:#1C1C1E}
+
+/* File list */
+.files{background:#FFFFFF;margin:0 12px 12px;padding:10px 18px;border-radius:14px}
+.files-title{font-size:12px;color:#8E8E93;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;padding:8px 0 10px}
+.file-row{display:flex;align-items:center;padding:12px 0;border-top:1px solid #F2F2F4}
+.file-row:first-of-type{border-top:none}
+.file-icon{width:40px;height:40px;border-radius:10px;background:#F2F2F4;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#8E8E93;margin-right:12px}
+.file-info{flex:1;min-width:0}
+.file-name{font-size:15px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-date{font-size:12px;color:#8E8E93;margin-top:2px}
+.file-size{font-size:13px;color:#8E8E93;text-align:right}
+
+/* Settings */
+.settings{background:#FFFFFF;margin:0 12px 12px;padding:18px;border-radius:14px}
+.settings-title{font-size:12px;color:#8E8E93;font-weight:500;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px}
+.set-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid #F2F2F4}
+.set-row:first-of-type{border-top:none}
+.set-label{font-size:15px}
+.set-val{font-size:15px;color:#8E8E93;text-align:right}
+.set-input{font-size:15px;color:#1C1C1E;text-align:right;border:none;background:transparent;width:180px}
+
+/* Buttons */
+.btn{display:block;width:calc(100% - 24px);margin:0 12px 10px;padding:14px;border-radius:12px;font-size:15px;font-weight:600;text-align:center;cursor:pointer;border:none}
+.btn-primary{background:#1C1C1E;color:#FFFFFF}
+.btn-danger{background:#FFFFFF;color:#FF3B30;border:1px solid #FF3B3015}
+
+/* Tab bar */
+.tabs{display:flex;background:#FFFFFF;padding:0 12px;border-top:1px solid #E5E5EA}
+.tab{flex:1;text-align:center;padding:16px 0;font-size:11px;font-weight:600;color:#8E8E93;border:none;background:transparent;text-transform:uppercase;letter-spacing:0.05em;position:relative}
+.tab.active{color:#1C1C1E}
+.tab.active::after{content:'';position:absolute;bottom:0;left:30%;right:30%;height:2px;background:#1C1C1E;border-radius:1px}
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <div class="header">
+    <span class="header-title">JiaLe Cloud</span>
+    <span class="header-status"><span style="width:8px;height:8px;border-radius:50%;background:#34C759;display:inline-block"></span> 在线</span>
+  </div>
+
+  <!-- Content -->
+  <div style="flex:1;overflow-y:auto;padding-bottom:12px">
+
+    <!-- Status strip -->
+    <div class="strip">
+      <div class="strip-icon">☁</div>
+      <div class="strip-info">
+        <div class="strip-title">节点运行中</div>
+        <div class="strip-sub">存储节点 · 已运行 26 分钟</div>
+      </div>
+      <div class="strip-badge">在线</div>
+    </div>
+
+    <!-- Capacity -->
+    <div class="row">
+      <div class="metric">
+        <div class="metric-label">总容量</div>
+        <div><span class="metric-value">59</span><span class="metric-unit">GB</span></div>
+        <div class="metric-sub">设备总空间</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">已使用</div>
+        <div><span class="metric-value">11.8</span><span class="metric-unit">GB</span></div>
+        <div class="metric-sub">占 20%</div>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress">
+      <div class="progress-header">
+        <span class="progress-title">存储使用率</span>
+        <span class="progress-pct">20%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
+    </div>
+
+    <!-- Speed -->
+    <div class="speed">
+      <div class="speed-title">传输速度</div>
+      <div class="speed-row"><span class="speed-label">上传</span><span class="speed-val">1.2 MB/s</span></div>
+      <div class="speed-row"><span class="speed-label">下载</span><span class="speed-val">856 KB/s</span></div>
+    </div>
+
+    <!-- Files -->
+    <div class="files">
+      <div class="files-title">最近文件</div>
+      <div class="file-row">
+        <div class="file-icon">PDF</div>
+        <div class="file-info"><div class="file-name">年度报告_2026.pdf</div><div class="file-date">05-25 14:32</div></div>
+        <div class="file-size">2.3 MB</div>
+      </div>
+      <div class="file-row">
+        <div class="file-icon">IMG</div>
+        <div class="file-info"><div class="file-name">photo_0518.jpg</div><div class="file-date">05-18 10:15</div></div>
+        <div class="file-size">856 KB</div>
+      </div>
+      <div class="file-row">
+        <div class="file-icon">VID</div>
+        <div class="file-info"><div class="file-name">cinematic_broll.mp4</div><div class="file-date">05-17 22:08</div></div>
+        <div class="file-size">1.2 GB</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tabs">
+    <button class="tab active">状态</button>
+    <button class="tab">文件</button>
+    <button class="tab">设置</button>
+  </div>
+</div>
+</body>
+</html>

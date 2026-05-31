@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#F2F2F4" android:clipToPadding="false">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="12dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/card_bg" android:padding="18dp" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="节点绑定" android:textSize="12sp" android:textColor="#8E8E93"
+                android:fontFamily="sans-serif-medium" android:letterSpacing="0.05"
+                android:layout_marginBottom="12dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingVertical="14dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="绑定账号" android:textSize="15sp"
+                    android:textColor="#1C1C1E" />
+                <EditText android:id="@+id/email_input" android:layout_width="200dp"
+                    android:layout_height="wrap_content" android:textSize="15sp"
+                    android:textColor="#8E8E93" android:gravity="end" android:background="@null"
+                    android:hint="未绑定" android:enabled="false" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="#F2F2F4" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingVertical="14dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="绑定码" android:textSize="15sp"
+                    android:textColor="#1C1C1E" />
+                <EditText android:id="@+id/host_input" android:layout_width="200dp"
+                    android:layout_height="wrap_content" android:textSize="15sp"
+                    android:textColor="#8E8E93" android:gravity="end" android:background="@null"
+                    android:hint="扫码后粘贴" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/card_bg" android:padding="18dp" android:orientation="vertical"
+            android:layout_marginTop="10dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="关于" android:textSize="12sp" android:textColor="#8E8E93"
+                android:fontFamily="sans-serif-medium" android:letterSpacing="0.05"
+                android:layout_marginBottom="12dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:paddingVertical="10dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="版本" android:textSize="15sp" android:textColor="#1C1C1E" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="v1.0" android:textSize="15sp" android:textColor="#8E8E93" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button android:id="@+id/scan_btn" android:layout_width="match_parent"
+            android:layout_height="48dp" android:text="扫码绑定" android:textColor="#FFFFFF"
+            android:background="@drawable/btn_primary_bg" android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium" android:textSize="15sp" />
+
+        <Button android:id="@+id/save_btn" android:layout_width="match_parent"
+            android:layout_height="48dp" android:text="绑定节点" android:textColor="#FFFFFF"
+            android:background="@drawable/btn_primary_bg" android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium" android:textSize="15sp" />
+
+        <Button android:id="@+id/disconnect_btn" android:layout_width="match_parent"
+            android:layout_height="48dp" android:text="断开连接" android:textColor="#FF3B30"
+            android:background="@drawable/btn_outline_bg" android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-medium" android:textSize="15sp" />
+    </LinearLayout>
+</ScrollView>

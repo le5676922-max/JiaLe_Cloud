@@ -1,0 +1,118 @@
+/* ====== Element Plus 低饱和度主题覆盖 ====== */
+
+:root {
+  /* 主色 — 石墨蓝 */
+  --el-color-primary: #697886;
+  --el-color-primary-light-1: #7a8a98;
+  --el-color-primary-light-2: #8b9caa;
+  --el-color-primary-light-3: #9cadbc;
+  --el-color-primary-light-4: #aebfce;
+  --el-color-primary-light-5: #c0d1e0;
+  --el-color-primary-light-6: #d2e3f2;
+  --el-color-primary-light-7: #e4f5ff;
+  --el-color-primary-light-8: #f0f7fc;
+  --el-color-primary-light-9: #f8fbfd;
+  --el-color-primary-dark-2: #546574;
+
+  /* 成功 — 灰绿 */
+  --el-color-success: #7a9a7a;
+  --el-color-success-light-3: #b0c8b0;
+  --el-color-success-light-5: #d4e4d4;
+  --el-color-success-light-7: #eef6ee;
+  --el-color-success-light-8: #f6faf6;
+  --el-color-success-light-9: #fafcfa;
+
+  /* 警告 — 灰橙 */
+  --el-color-warning: #b8934e;
+  --el-color-warning-light-3: #d4b576;
+  --el-color-warning-light-5: #e8d5a8;
+  --el-color-warning-light-7: #f6efd8;
+  --el-color-warning-light-8: #faf6ec;
+  --el-color-warning-light-9: #fcfaf4;
+
+  /* 危险 — 暗红 */
+  --el-color-danger: #c95a5a;
+  --el-color-danger-light-3: #e08c8c;
+  --el-color-danger-light-5: #efbebe;
+  --el-color-danger-light-7: #f7dede;
+  --el-color-danger-light-8: #faeeee;
+  --el-color-danger-light-9: #fcf6f6;
+
+  /* 信息 — 灰 */
+  --el-color-info: #909399;
+
+  /* 圆角 */
+  --el-border-radius-base: 6px;
+  --el-border-radius-small: 4px;
+  --el-border-radius-round: 20px;
+
+  /* 边框颜色 */
+  --el-border-color: #e5e7eb;
+  --el-border-color-light: #eeeef0;
+  --el-border-color-lighter: #f0f0f2;
+  --el-border-color-extra-light: #f5f5f6;
+
+  /* 字体 */
+  --el-font-size-base: 14px;
+}
+
+/* ====== 全局样式 ====== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC",
+    "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #374151;
+  background: #f5f6f8;
+}
+
+/* 表格行 hover 光标 */
+.file-row {
+  cursor: pointer;
+}
+
+/* el-table 细微调整 */
+.el-table {
+  --el-table-border-color: #eeeef0;
+  --el-table-header-bg-color: #fafafa;
+  --el-table-row-hover-bg-color: #f7f8f9;
+}
+
+/* el-button 默认样式微调 */
+.el-button--default {
+  --el-button-border-color: #dde0e4;
+  --el-button-hover-border-color: #c8cdd4;
+  --el-button-hover-bg-color: #f5f6f8;
+  --el-button-active-bg-color: #eeeff2;
+  color: #4b5563;
+}
+
+/* el-input 微调 */
+.el-input {
+  --el-input-border-color: #dde0e4;
+  --el-input-hover-border-color: #c5c9cf;
+  --el-input-focus-border-color: #697886;
+}
+
+/* el-dialog 微调 */
+.el-dialog {
+  --el-dialog-border-radius: 10px;
+}
+
+/* el-progress 背景 */
+.el-progress-bar__outer {
+  background-color: #e8eaed;
+}
+
+/* el-breadcrumb */
+.el-breadcrumb {
+  font-size: 13px;
+}
+
+/* 进度条百分比文字 */
+.el-progress__text {
+  font-size: 12px !important;
+}

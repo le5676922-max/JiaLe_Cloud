@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 30
+      min-spare: 5
+
+yunpan:
+  cloud:
+    host: ${CLOUD_HOST:your-server-ip}
+  node:
+    id: auto
+    frp-port: 18082
+    token: ${NODE_TOKEN:change-me}
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-random-string}
+  storage:
+    root-path: ./storage_data
+  security:
+    master-key: ${MASTER_KEY:change-me-to-a-64-char-hex-string}
+  compression:
+    enabled: true
+    level: 6
+    skip-extensions: jpg,jpeg,png,gif,webp,heic,avif,mp4,mkv,avi,mov,webm,flv,wmv,mp3,aac,ogg,wav,flac,zip,rar,7z,gz,bz2,xz
+    min-size: 1024
